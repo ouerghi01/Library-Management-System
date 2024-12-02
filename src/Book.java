@@ -8,6 +8,10 @@ public class Book {
     private Boolean isBorrowed;
 
     public Book(String title, String author, int price) {
+        if (title == null || title.isEmpty() || author == null || author.isEmpty() || price <= 0) {
+            throw new IllegalArgumentException(
+                    "Book title or author cannot be null or empty and price cannot be less than or equal to 0");
+        }
         this.title = title;
         this.author = author;
         this.price = price;
